@@ -1607,8 +1607,7 @@ class ModelToolExchange1c extends Model {
 		$this->log("	--- Поиск id товара по Ид: " . $id . ", getProductIdBy1CProductId()");
 		$query = $this->db->query('SELECT product_id FROM ' . DB_PREFIX . 'product_to_1c WHERE `1c_id` = "' . $id . '"');
 		if ($query->num_rows) {
-			$this->PRODUCT['product_id'] = $query->row['product_id'];
-			return true;
+			return $query->row['product_id'];
 		}
 		else {
 			return false;
